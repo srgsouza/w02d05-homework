@@ -98,6 +98,7 @@ const makeHobbits = () => {
 
   // 2. give each hobbit a class of "hobbit"
 //   Done in previous (1.)
+
   // hint: create a 'ul' outside the loop upon which to append the 'li's
   // hint: get 'The-Shire' by using its id
 
@@ -112,8 +113,10 @@ const makeHobbits = () => {
 const keepItSecretKeepItSafe = () => {
 
   // 1. create an empty div with an id of 'the-ring'
+  const $div = $('<div id="the-ring"> <div/>');
 
   // 2. add the ring as a child of Frodo
+  $("li:contains('Frodo')").append($div);
 
   // hint: Frodo does not have an id, but there is a command to retrieve all elements with a certain class. This should give you an array for you to access . . .
 
