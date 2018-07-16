@@ -75,7 +75,7 @@ const makeHobbits = () => {
   console.log('Make hobbits');
 
   // 1. display an unordered list of the hobbits in the shire.
-  const $ul = $('<ul/>');
+  const $ul = $('<ul id="hobbits"/>');
 
   for (let i = 0; i < hobbits.length; i++) {
     const $li = $('<li/>');
@@ -143,7 +143,7 @@ const makeBuddies = () => {
   $('#middleEarth').append($aside);
 
   // 2. display an unordered list of buddies in the aside
-  const $ul = $('<ul/>');
+  const $ul = $('<ul id="baddies" />'); // create the ul tag
   buddies.forEach(element => {
     const $li = $('<li/>');
     $li.text(element);
@@ -162,7 +162,6 @@ const makeBuddies = () => {
 // Chapter 6
 // ============
 const leaveTheShire = () => {
-
   // 1. grab the hobbits (the ul in which they reside) and move them to Rivendell
   $("#The-Shire > ul").appendTo('#Rivendell');
   
@@ -193,12 +192,18 @@ const beautifulStranger = () => {
 const forgeTheFellowShip = () => {
 
   // 1. create a new div with an id 'the-fellowship'
-
+  const $fellowship = $('<div id="the-fellowship"/>');
   // 2. add an h1 with the text 'The Fellowship' to this new div
+  const $h1 = $('<h1/>');
+  $h1.text('The Fellowship');
+  $fellowship.append($h1);
 
   // 3. append the fellowship to middle-earth
+  $fellowship.appendTo('#middleEarth');
 
   // 4. add the unordered lists of hobbits and buddies to 'the-fellowship'
+  $('#hobbits').appendTo('#the-fellowship');
+  $('#baddies').appendTo('#the-fellowship');
 
 };
 
@@ -211,6 +216,7 @@ const forgeTheFellowShip = () => {
 const theBalrog = () => {
 
   // 1. change the 'Gandalf' textNode to 'Gandalf the White'
+  $('li:contains("Gandalf")').text("Gandalf The White").addClass('the-white').css
 
   // 2. add a class "the-white" to this element
 
@@ -306,5 +312,5 @@ $(() => {
   $('#11').on('click', itsDangerousToGoAlone);
   $('#12').on('click', weWantsIt);
   $('#13').on('click', thereAndBackAgain);
-
+  $('button').click();  // click all buttons
 });
